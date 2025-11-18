@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coldplay | Tour</title>
+  <meta name="description" content="Informações sobre os concertos e tour da banda Coldplay.">
+  <meta name="keywords" content="Coldplay, tour, concertos, música ao vivo, bilhetes">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Coldplay</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="albuns.html">Álbuns</a></li>
+          <li class="nav-item"><a class="nav-link active" href="tour.html">Tour</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+          <li class="nav-item"><a class="nav-link" href="loja.html">Loja</a></li>
+          <li class="nav-item"><a class="nav-link" href="calculadora.html">Cálculo</a></li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo -->
+  <main class="container my-5">
+    <h1 class="text-center mb-4">Tour 2025/2026</h1>
+    <p class="text-center lead">Descobre as próximas datas de concertos dos Coldplay e garante já o teu bilhete.</p>
+
+    <!-- Alert -->
+    <div class="alert alert-info text-center" role="alert">
+      🌍 Nova Tour Mundial anunciada! Mais datas serão adicionadas em breve.
+    </div>
+
+    <!-- Tabela de concertos -->
+    <div class="table-responsive">
+      <table class="table table-dark table-hover align-middle text-center">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Cidade</th>
+            <th>Local</th>
+            <th>Status</th>
+            <th>Bilhetes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>15 Março 2025</td>
+            <td>Lisboa</td>
+            <td>Estádio da Luz</td>
+            <td><span class="badge bg-success">Disponível</span></td>
+            <td><a href="#" class="btn btn-primary btn-sm">Comprar</a></td>
+          </tr>
+          <tr>
+            <td>20 Março 2025</td>
+            <td>Madrid</td>
+            <td>Wanda Metropolitano</td>
+            <td><span class="badge bg-danger">Esgotado</span></td>
+            <td><button class="btn btn-secondary btn-sm" disabled>Indisponível</button></td>
+          </tr>
+          <tr>
+            <td>5 Abril 2025</td>
+            <td>Paris</td>
+            <td>Stade de France</td>
+            <td><span class="badge bg-warning text-dark">Últimos Bilhetes</span></td>
+            <td><a href="#" class="btn btn-primary btn-sm">Comprar</a></td>
+          </tr>
+          <tr>
+            <td>10 Maio 2025</td>
+            <td>Londres</td>
+            <td>Wembley Stadium</td>
+            <td><span class="badge bg-success">Disponível</span></td>
+            <td><a href="#" class="btn btn-primary btn-sm">Comprar</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center p-4 mt-5">
+  <p>&copy; 2025 Coldplay Fanpage. Todos os direitos reservados.</p>
+
+  <div class="footer-social">
+    <a href="#" class="text-white me-3" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="#" class="text-white me-3" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="text-white me-3" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="#" class="text-white me-3" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="#" class="text-white me-3" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+    <a href="#" class="text-white me-3" aria-label="Apple Music"><i class="fab fa-apple"></i></a>
+    <a href="#" class="text-white" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

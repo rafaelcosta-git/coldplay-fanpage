@@ -1,0 +1,52 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "T-shirt Oficial Coldplay",
+      "preco": 25,
+      "categoria": "tshirt",
+      "imagem": "imagens/loja/tshirt1.jpg",
+      "descricao": "T-shirt oficial da tour Music of the Spheres."
+    },
+    {
+      "id": 2,
+      "nome": "Hoodie 'Universe'",
+      "preco": 55,
+      "categoria": "hoodie",
+      "imagem": "imagens/loja/hoodie1.jpg",
+      "descricao": "Hoodie confortável inspirado na estética futurista do álbum."
+    },
+    {
+      "id": 3,
+      "nome": "Pulseira LED Xyloband",
+      "preco": 15,
+      "categoria": "acessorio",
+      "imagem": "imagens/loja/xyloband.jpg",
+      "descricao": "Pulseira oficial usada em concertos para sincronização de luz."
+    },
+    {
+      "id": 4,
+      "nome": "Vinil Especial 'Parachutes'",
+      "preco": 40,
+      "categoria": "vinil",
+      "imagem": "imagens/loja/vinil_parachutes.jpg",
+      "descricao": "Edição limitada do álbum Parachutes em vinil amarelo."
+    },
+    {
+      "id": 5,
+      "nome": "Poster Holográfico",
+      "preco": 12,
+      "categoria": "poster",
+      "imagem": "imagens/loja/poster1.jpg",
+      "descricao": "Poster holográfico exclusivo da banda."
+    },
+    {
+      "id": 6,
+      "nome": "Capacete Futurista Coldplay",
+      "preco": 80,
+      "categoria": "colecionaveis",
+      "imagem": "imagens/loja/helmet.jpg",
+      "descricao": "Peça futurista inspirada no tema intergaláctico da tour."
+    }
+  ]
+}
