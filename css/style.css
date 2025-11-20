@@ -183,3 +183,88 @@ img.responsiva {
 
 
 
+/*Botao ver tour atualizado*/
+
+.morphing-button {
+  position: relative;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #87858a, #fcd825);
+  border: 2px solid white;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none; /* mantém aparência de botão */
+}
+
+.morphing-button i {
+  transition: transform 0.3s ease;
+}
+
+/* HOVER → botão fica branco */
+.morphing-button:hover {
+  background: white !important;
+  color: black !important;
+  transform: translateY(-2px);
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+}
+
+.morphing-button:hover i {
+  transform: translateX(4px);
+  color: black !important;
+}
+
+
+/*cards infinte*/
+
+.infinite-scroll-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.infinite-scroll-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll-cards 20s linear infinite;
+}
+
+.infinite-scroll-card {
+  flex: 0 0 250px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.infinite-scroll-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.infinite-scroll-card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.infinite-scroll-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+@keyframes scroll-cards {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 4 - 80px)); }
+}

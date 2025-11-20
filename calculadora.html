@@ -82,39 +82,46 @@
 
   <main class="container my-5">
 
-    <h1 class="text-center mb-4">Cálculo de Valor Total</h1>
-    <p class="text-center mb-4 text-light">
-      Seleciona um produto e insere a quantidade desejada.
-    </p>
+  <h1 class="text-center mb-4">Cálculo de Valor Total</h1>
 
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card p-4 shadow">
+  <p class="text-center mb-4 text-light">
+    Seleciona um produto e insere a quantidade desejada.
+  </p>
 
-          <!-- ============================== -->
-          <!-- FORMULÁRIO CORRETO DO PDF -->
-          <!-- ============================== -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
 
-          <div class="mb-3">
-            <label class="form-label">Produto</label>
-            <select id="produto-select" class="form-select">
-              <option value="">-- Seleciona um produto --</option>
-            </select>
-          </div>
+      <div class="card p-4 shadow">
 
-          <div class="mb-3">
-            <label class="form-label">Quantidade</label>
-            <input type="number" id="quantidade" class="form-control" placeholder="Ex: 2">
-          </div>
+        <!-- ============================== -->
+        <!-- FORMULARIO CORRETO DO PDF -->
+        <!-- ============================== -->
 
-          <button class="btn btn-primary w-100" onclick="calcularTotal()">Calcular Total</button>
-
-          <div id="resultado" class="alert alert-info text-dark d-none mt-3"></div>
-
+        <div class="mb-3">
+          <label class="form-label">Produto</label>
+          <select id="produto-select" class="form-select">
+            <option value="">-- Seleciona um produto --</option>
+          </select>
         </div>
+
+        <div class="mb-3">
+          <label class="form-label">Quantidade</label>
+          <input type="number" id="quantidade" class="form-control" placeholder="Ex: 2">
+        </div>
+
+        <button class="btn btn-primary w-100" onclick="calcularTotal()">
+          Calcular Total
+        </button>
+
+        <div id="resultado" class="alert alert-info text-dark d-none mt-3"></div>
+
       </div>
+
     </div>
-  </main>
+  </div>
+
+</main>
+
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center p-4 mt-5">
