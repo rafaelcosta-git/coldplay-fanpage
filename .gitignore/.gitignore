@@ -1,0 +1,7 @@
+# Credenciais e configs locais
+php/db.php
+
+# Dependendo do teu setup
+.DS_Store
+Thumbs.db
+.vscode/
