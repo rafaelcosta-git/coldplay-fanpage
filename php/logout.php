@@ -1,7 +1,9 @@
 <?php
-require __DIR__ . "/session.php";
-session_unset();
+session_start();
+$_SESSION = array();
 session_destroy();
 
-header("Location: login.php");
+// O segredo está aqui: o ficheiro agora é .php e não .html
+header("location: ../index.php"); 
 exit;
+?>

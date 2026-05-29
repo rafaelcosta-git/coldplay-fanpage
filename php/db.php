@@ -1,12 +1,16 @@
 <?php
+
 $host = "localhost";
-$dbname = "coldplay_fanpage";
 $user = "root";
-$pass = "";
+$password = "";
+$database = "coldplay_fanpage";
 
-$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
+// Criar ligação
+$conn = mysqli_connect($host, $user, $password, $database);
 
-$pdo = new PDO($dsn, $user, $pass, [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-]);
+// Verificar ligação
+if (!$conn) {
+    die("Erro na ligação: " . mysqli_connect_error());
+}
+
+?>

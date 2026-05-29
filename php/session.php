@@ -1,15 +1,14 @@
 <?php
-// Configuracoes básicas para a sessao funcionar em qualquer pasta
-ini_set('session.use_only_cookies', 1);
-ini_set('session.use_strict_mode', 1);
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-session_start();
-
-// Funcao para proteger a area de administracao
-function checkAdmin() {
-    if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin") {
-        header("Location: login.php");
-        exit;
+if (!function_exists('checkAdmin')) {
+    function checkAdmin() {
+        if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+            header("Location: profile.php");
+            exit;
+        }
     }
 }
 ?>

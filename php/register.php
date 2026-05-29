@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             "password" => $hashedPassword
         ]);
 
-        $success = "Registo efetuado com sucesso! Já podes fazer login.";
+        $success = "Registo efetuado com sucesso!";
     }
 }
 ?>
@@ -85,31 +85,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <?php endif; ?>
 
             <?php if ($success): ?>
-                <div class="alert alert-success">
-                    <?= htmlspecialchars($success) ?>
+                <div class="alert alert-success text-center p-4">
+                    <h4><?= htmlspecialchars($success) ?> 🎉</h4>
+                    <p>Agora já podes aceder à tua área de fã e aproveitar a loja.</p>
+                    <hr>
+                    <a href="login.php" class="btn btn-success btn-lg w-100 fw-bold">Ir fazer o Login</a>
                 </div>
+            <?php else: ?>
+                <form method="post" novalidate class="card bg-secondary bg-opacity-10 p-4 border-0 rounded-3">
+                    <div class="mb-3">
+                        <label class="form-label">Nome de utilizador</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 fw-bold">
+                        Registar
+                    </button>
+                    
+                    <p class="mt-3 text-center small text-white-50">
+                        Já tens conta? <a href="login.php" class="text-info">Faz login aqui</a>
+                    </p>
+                </form>
             <?php endif; ?>
-
-            <form method="post" novalidate>
-                <div class="mb-3">
-                    <label class="form-label">Nome de utilizador</label>
-                    <input type="text" name="username" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" required>
-                </div>
-
-                <button type="submit" class="btn btn-primary w-100">
-                    Registar
-                </button>
-            </form>
 
         </div>
     </div>

@@ -2,21 +2,46 @@
 require __DIR__ . "/session.php";
 require __DIR__ . "/db.php";
 
-// Apenas aceita requisições via POST para segurança
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $productId = (int)($_POST["product_id"] ?? 0);
-    
-    // Verifica se o produto existe e se tem stock disponível
-    $stmt = $pdo->prepare("SELECT stock FROM products WHERE id = ?");
-    $stmt->execute([$productId]);
-    $p = $stmt->fetch();
 
-    if ($p && $p['stock'] > 0) {
-        // Se já existir no carrinho, aumenta 1. Se não, começa em 1.
-        $_SESSION["cart"][$productId] = ($_SESSION["cart"][$productId] ?? 0) + 1;
+    // Garantir que o carrinho existe
+    if (!isset($_SESSION["cart"])) {
+        $_SESSION["cart"] = [];
+    }
+
+    // =========================
+    // PRODUTOS
+    // =========================
+    if (isset($_POST["product_id"])) {
+        $id = (int) $_POST["product_id"];
+        $key = "product_" . $id;
+
+        if ($id > 0) {
+            if (isset($_SESSION["cart"][$key])) {
+                $_SESSION["cart"][$key]++;
+            } else {
+                $_SESSION["cart"][$key] = 1;
+            }
+        }
+    }
+
+    // =========================
+    // EVENTOS
+    // =========================
+    if (isset($_POST["event_id"])) {
+        $id = (int) $_POST["event_id"];
+        $key = "event_" . $id;
+
+        if ($id > 0) {
+            if (isset($_SESSION["cart"][$key])) {
+                $_SESSION["cart"][$key]++;
+            } else {
+                $_SESSION["cart"][$key] = 1;
+            }
+        }
     }
 }
 
-// Redirecionamento simples e relativo
+// Redirecionar de volta
 header("Location: loja.php");
 exit;

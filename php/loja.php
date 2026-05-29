@@ -1,10 +1,15 @@
 <?php
-session_start();
+require __DIR__ . "/session.php";
 require __DIR__ . "/db.php";
 
-// Buscar produtos da base de dados
-$stmt = $pdo->query("SELECT id, name, category, description, price, image FROM products WHERE stock > 0");
-$produtos = $stmt->fetchAll();
+// Buscar produtos da base de dados (Apenas produtos com stock)
+$result = mysqli_query($conn,"SELECT id, name, category, description, price, image FROM products WHERE stock > 0");
+
+$produtos = [];
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $produtos[] = $row;
+}
 
 // Contador do carrinho
 $cartCount = 0;
@@ -29,29 +34,19 @@ if (!empty($_SESSION["cart"])) {
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="bg-dark text-light">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="../index.html">Coldplay</a>
-
-    <div class="ms-auto">
-      <a class="nav-link text-white" href="cart.php">
-        Loja
-        <span class="badge bg-warning text-dark ms-1"><?= $cartCount ?></span>
-        <i class="fa-solid fa-cart-shopping ms-1"></i>
-      </a>
-    </div>
-  </div>
-</nav>
+<?php 
+require "session.php"; // Aqui não precisas do "php/" porque já estás lá dentro
+include "navbar.php";  // Chama a barra de navegação
+?>
 
 <main class="container my-5">
   <h1 class="text-center mb-4">Loja Oficial Coldplay</h1>
-  <p class="text-center text-white mb-5">Escolhe o teu merchandising favorito.</p>
+  <p class="text-center text-muted mb-5">Escolhe o teu merchandising favorito.</p>
 
   <div class="row g-4">
 
-    <!-- PRODUTOS -->
     <section class="col-lg-8">
 
       <div class="d-flex justify-content-between align-items-center mb-3">
@@ -59,9 +54,8 @@ if (!empty($_SESSION["cart"])) {
         <small class="text-light"><?= count($produtos) ?> produto(s)</small>
       </div>
 
-      <!-- FILTRO -->
-      <div class="mb-3">
-        <label class="form-label text-white">Filtrar por categoria:</label>
+      <div class="mb-4 bg-secondary p-3 rounded">
+        <label class="form-label text-white fw-bold">Filtrar por categoria:</label>
         <select id="categoria-select" class="form-select w-50">
           <option value="todos">Todas as categorias</option>
           <option value="tshirt">T-shirts</option>
@@ -76,21 +70,30 @@ if (!empty($_SESSION["cart"])) {
       <div class="row g-4" id="produtos-container">
 
         <?php foreach ($produtos as $p): ?>
-          <div class="col-md-6 produto-card" data-categoria="<?= htmlspecialchars($p["category"]) ?>">
-            <div class="card h-100 shadow-sm">
-              <img src="../<?= htmlspecialchars($p["image"]) ?>" class="card-img-top" alt="<?= htmlspecialchars($p["name"]) ?>">
+          <div class="col-md-6 produto-card" data-categoria="<?= htmlspecialchars(strtolower($p["category"])) ?>">
+            <div class="card h-100 bg-dark border-secondary shadow-sm">
+              
+              <?php 
+                // Truque inteligente para ajustar o caminho da imagem
+                $imagePath = $p["image"];
+                if (strpos($imagePath, '../') !== 0 && strpos($imagePath, '/') !== 0) {
+                    $imagePath = '../' . $imagePath; 
+                }
+              ?>
+              <img src="<?= htmlspecialchars($imagePath) ?>" class="card-img-top" alt="<?= htmlspecialchars($p["name"]) ?>" style="height: 280px; object-fit: cover;">
 
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title"><?= htmlspecialchars($p["name"]) ?></h5>
+              <div class="card-body d-flex flex-column text-light">
+                <h5 class="card-title text-warning"><?= htmlspecialchars($p["name"]) ?></h5>
                 <p class="card-text small text-muted"><?= htmlspecialchars($p["description"]) ?></p>
-                <p class="fw-bold mb-2"><?= number_format($p["price"], 2) ?> €</p>
+                <p class="fw-bold fs-5 mb-3"><?= number_format($p["price"], 2) ?> €</p>
 
                 <form method="post" action="add_to_cart.php" class="mt-auto">
                   <input type="hidden" name="product_id" value="<?= (int)$p["id"] ?>">
-                  <button class="btn btn-primary w-100">
+                  <button type="submit" class="btn btn-warning w-100 fw-bold">
                     <i class="fa-solid fa-cart-plus me-1"></i> Adicionar
                   </button>
                 </form>
+
               </div>
             </div>
           </div>
@@ -100,18 +103,17 @@ if (!empty($_SESSION["cart"])) {
 
     </section>
 
-    <!-- CARRINHO -->
     <aside class="col-lg-4">
-      <div class="card bg-dark text-light shadow">
+      <div class="card bg-dark border-warning text-light shadow sticky-top" style="top: 80px;">
         <div class="card-body">
-          <h2 class="h4 mb-3">
-            <i class="fa-solid fa-cart-shopping me-2"></i> Carrinho
+          <h2 class="h4 mb-3 text-warning">
+            <i class="fa-solid fa-cart-shopping me-2"></i> O Teu Carrinho
           </h2>
 
-          <p class="text-muted">O carrinho agora é gerido em PHP (sessões).</p>
+          <p class="text-muted small mb-4">A tua seleção segura de merchandising.</p>
 
-          <a href="cart.php" class="btn btn-success w-100 mb-2">Ver carrinho</a>
-          <a href="checkout.php" class="btn btn-outline-light w-100 btn-sm">Finalizar compra</a>
+          <a href="cart.php" class="btn btn-warning w-100 mb-2 fw-bold text-dark">Ver carrinho completo</a>
+          <a href="checkout.php" class="btn btn-outline-light w-100">Finalizar compra</a>
         </div>
       </div>
     </aside>
@@ -119,12 +121,12 @@ if (!empty($_SESSION["cart"])) {
   </div>
 </main>
 
-<footer class="bg-dark text-white text-center p-4 mt-5">
+<footer class="bg-dark border-top border-secondary text-white text-center p-4 mt-5">
   <p>&copy; 2025 Coldplay Fanpage.</p>
 </footer>
 
 <script>
-// filtro por categoria (mantido)
+// Filtro por categoria (JS mantido e ajustado)
 const FILTER_KEY = "coldplay_filtro";
 const select = document.getElementById("categoria-select");
 
