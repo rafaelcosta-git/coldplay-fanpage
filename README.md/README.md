@@ -1,93 +1,184 @@
 # 🎵 Coldplay Fanpage
 
-Este projeto é uma **fanpage dedicada à banda Coldplay**, desenvolvida como parte da minha prática em desenvolvimento web.  
-O objetivo foi aplicar conceitos de **HTML, CSS e JavaScript**, criando um site completo com múltiplas páginas, navegação e funcionalidades interativas.
+## 📖 Descrição
 
-🔗 **Website (GitHub Pages):**  
-https://rafaelcosta-git.github.io/coldplay-fanpage/index.html
+A Coldplay Fanpage é uma aplicação web desenvolvida em PHP e MySQL dedicada à banda Coldplay.
+
+O projeto foi desenvolvido com o objetivo de aplicar conceitos de desenvolvimento web full-stack, incluindo autenticação de utilizadores, gestão de conteúdos, base de dados relacional, carrinho de compras e painel administrativo.
 
 ---
 
 # 🚀 Funcionalidades
 
-O website inclui várias secções que simulam uma página oficial de uma banda:
+## 👤 Área Pública
 
-- Página inicial com apresentação da banda
-- Página sobre a história do Coldplay
-- Secção de álbuns
-- Página de tour
-- Página de contactos
-- Página de loja
-- Calculadora interativa desenvolvida em JavaScript
+* Página Inicial
+* História da Banda
+* Discografia
+* Eventos e Concertos
+* Loja Online
+* Página de Contactos
+* Calculadora Interativa
+
+## 🔐 Sistema de Autenticação
+
+* Registo de Utilizadores
+* Login
+* Logout
+* Gestão de Sessões
+
+## 🛒 Loja Online
+
+* Catálogo de Produtos
+* Carrinho de Compras
+* Alteração de Quantidades
+* Remoção de Produtos
+* Checkout
+* Atualização automática de stock
+
+## 🎫 Sistema de Eventos
+
+* Listagem de Eventos
+* Pesquisa de Eventos
+* Página de Detalhes
+* Compra de Bilhetes
+
+## 👨‍💼 Área de Utilizador
+
+* Perfil de Utilizador
+* Histórico de Compras
+* Consulta de Encomendas
+* Consulta de Bilhetes Comprados
+
+## ⚙️ Painel de Administração
+
+* Gestão de Produtos
+* Gestão de Eventos
+* Gestão de Utilizadores
+* Gestão de Encomendas
+* Promoção de Utilizadores para Administrador
 
 ---
 
-# 🛠️ Tecnologias utilizadas
+# 🛠️ Tecnologias Utilizadas
 
-**Frontend**
-- HTML5
-- CSS3
-- JavaScript
+## Frontend
 
-**Backend (estrutura preparada)**
-- PHP
-- MySQL
+* HTML5
+* CSS3
+* Bootstrap 5
+* JavaScript
+* Font Awesome
 
-**Ferramentas**
-- Git
-- GitHub
-- GitHub Pages
+## Backend
+
+* PHP 8
+* MySQL
+* phpMyAdmin
+
+## Ferramentas
+
+* Git
+* GitHub
+* XAMPP
+* Visual Studio Code
+
+---
+
+# 🗄️ Base de Dados
+
+O projeto utiliza uma base de dados MySQL denominada:
+
+```sql
+coldplay_fanpage
+```
+
+Principais tabelas:
+
+* users
+* products
+* events
+* orders
+* order_items
+* tickets
+
+O ficheiro `coldplay_fanpage.sql` encontra-se incluído no projeto para importação.
 
 ---
 
 # 📂 Estrutura do Projeto
 
-```
+```text
 coldplay-fanpage
 │
-├── css
-├── js
-├── php
-├── database
-├── imagens
+├── css/
+├── imagens/
+├── js/
+├── php/
 │
-├── index.html
-├── sobre.html
-├── albums.html
-├── tour.html
-├── loja.html
-├── contactos.html
-├── calculadora.html
+├── database/
+│   └── coldplay_fanpage.sql
+│
+└── README.md
 ```
 
 ---
 
-# 🎯 Objetivo do Projeto
+# ▶️ Como Executar
 
-Este projeto foi desenvolvido para:
+1. Instalar o XAMPP.
+2. Iniciar Apache e MySQL.
+3. Copiar a pasta do projeto para:
 
-- Praticar **estruturação de websites multi-página**
-- Trabalhar **design e layout responsivo**
-- Implementar **interatividade com JavaScript**
-- Organizar um projeto web completo com **Git e GitHub**
+```text
+xampp/htdocs/
+```
+
+4. Importar o ficheiro:
+
+```text
+coldplay_fanpage.sql
+```
+
+para o phpMyAdmin.
+
+5. Abrir no navegador:
+
+```text
+http://localhost/coldplay-fanpage/
+```
 
 ---
 
-# 📸 Preview
+# 🎯 Objetivos do Projeto
 
-![Coldplay Fanpage Screenshot](./imagens/preview.png)
+Este projeto permitiu desenvolver competências em:
+
+* Desenvolvimento Web Full Stack
+* PHP e MySQL
+* Modelação de Bases de Dados
+* Sistemas de Autenticação
+* Gestão de Sessões
+* Operações CRUD
+* Carrinho de Compras
+* Painéis Administrativos
+* Organização de Projetos
+* Controlo de Versões com Git e GitHub
 
 ---
 
 # 📚 Aprendizagens
 
-Durante o desenvolvimento deste projeto desenvolvi competências em:
+Durante o desenvolvimento foram aplicados conhecimentos de:
 
-- Estruturação de páginas web
-- Organização de projetos
-- Navegação entre múltiplas páginas
-- Manipulação do DOM com JavaScript
-- Utilização do Git e GitHub para controlo de versões
+* Programação PHP
+* SQL e Bases de Dados Relacionais
+* Bootstrap
+* Manipulação do DOM
+* Sessões PHP
+* Gestão de Utilizadores
+* Integração Frontend/Backend
+* Boas práticas de organização de código
 
 ---
 
@@ -95,9 +186,10 @@ Durante o desenvolvimento deste projeto desenvolvi competências em:
 
 **Rafael Costa**
 
-📧 mingosrafael24@gmail.com  
-💼 LinkedIn:  
+📧 [mingosrafael24@gmail.com](mailto:mingosrafael24@gmail.com)
+
+💼 LinkedIn
 https://www.linkedin.com/in/rafael-costa-950a80321/
 
-🌐 Portfolio  
-https://rafael-costa-portfolio.vercel.app/
+🌐 Portefólio
+https://rafaelcostaweb3.lovable.app/
