@@ -1,3 +1,16 @@
+<?php
+require_once "session.php";
+require_once "db.php";
+
+include "navbar.php";
+
+$events = mysqli_query(
+    $conn,
+    "SELECT * FROM events ORDER BY date ASC LIMIT 3"
+);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -7,37 +20,13 @@
   <meta name="description" content="Descubra a discografia completa da banda Coldplay com capas e anos de lançamento.">
   <meta name="keywords" content="Coldplay, álbuns, discografia, música, discografia completa">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-  <!-- CSS personalizado -->
-  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Coldplay</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link active" href="albuns.html">Álbuns</a></li>
-          <li class="nav-item"><a class="nav-link" href="tour.html">Tour</a></li>
-          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
-          <li class="nav-item"><a class="nav-link" href="loja.html">Loja</a></li>
-          <li class="nav-item"><a class="nav-link" href="calculadora.html">Cálculo</a></li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
 
   <!-- Conteúdo -->
   <main class="container my-5">
@@ -47,10 +36,13 @@
       <!-- Álbum 1 -->
       <div class="col-md-4 col-12">
         <div class="card album-card">
-          <img src="imagens/parachutes.jpeg" class="card-img-top" alt="Capa do álbum Parachutes">
+          <img src="../imagens/parachutes.jpeg" class="card-img-top" alt="Capa do álbum Parachutes">
           <div class="card-body text-center">
             <h5 class="card-title">Parachutes</h5>
             <p class="card-text">2000</p>
+             <a href="albuns_details.php?id=1" class="btn btn-warning mt-2">
+              Ver Detalhes
+            </a>
           </div>
         </div>
       </div>
@@ -58,10 +50,13 @@
       <!-- Álbum 2 -->
       <div class="col-md-4 col-12">
         <div class="card album-card">
-          <img src="imagens/arushofbloodtothehead.jpg" class="card-img-top" alt="Capa do álbum A Rush of Blood to the Head">
+          <img src="../imagens/arushofbloodtothehead.jpg" class="card-img-top" alt="Capa do álbum A Rush of Blood to the Head">
           <div class="card-body text-center">
             <h5 class="card-title">A Rush of Blood to the Head</h5>
             <p class="card-text">2002</p>
+            <a href="albuns_details.php?id=2" class="btn btn-warning mt-2">
+            Ver Detalhes
+            </a>
           </div>
       </div>
       </div>
@@ -71,10 +66,13 @@
     <!-- Álbum 3 -->
       <div class="col-md-4 col-12">
         <div class="card album-card">
-          <img src="imagens/XYX.jpg" class="card-img-top" alt="Capa do álbum X&Y">
+          <img src="../imagens/XYX.jpg" class="card-img-top" alt="Capa do álbum X&Y">
           <div class="card-body text-center">
             <h5 class="card-title">X&Y</h5>
             <p class="card-text">2005</p>
+            <a href="albuns_details.php?id=3" class="btn btn-warning mt-2">
+            Ver Detalhes
+            </a>
           </div>
         </div>
       </div>
@@ -98,7 +96,8 @@
 
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

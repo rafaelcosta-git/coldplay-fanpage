@@ -7,12 +7,12 @@ $success = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $username = trim($_POST["username"] ?? "");
+    $name = trim($_POST["name"] ?? "");
     $email    = trim($_POST["email"] ?? "");
     $password = $_POST["password"] ?? "";
 
     // Validações básicas
-    if ($username === "" || $email === "" || $password === "") {
+    if ($name === "" || $email === "" || $password === "") {
         $errors[] = "Todos os campos são obrigatórios.";
     }
 
@@ -25,38 +25,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Verificar se utilizador ou email já existem
-    if (empty($errors)) {
-        $stmt = $pdo->prepare(
-            "SELECT id FROM users WHERE username = :username OR email = :email"
-        );
-        $stmt->execute([
-            "username" => $username,
-            "email" => $email
-        ]);
+    $stmt = mysqli_prepare(
+    $conn,
+    "SELECT id FROM users WHERE name = ? OR email = ?"
+    );
 
-        if ($stmt->fetch()) {
-            $errors[] = "Nome de utilizador ou email já existentes.";
-        }
+    mysqli_stmt_bind_param(
+    $stmt,"ss",$name,$email
+    );
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_fetch_assoc($result)) {
+     $errors[] = "Nome de utilizador ou email já existentes.";
     }
+
 
     // Inserir utilizador
     if (empty($errors)) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt = $pdo->prepare(
-            "INSERT INTO users (username, email, password) 
-             VALUES (:username, :email, :password)"
-        );
+       $stmt = mysqli_prepare(
+       $conn,
+       "INSERT INTO users (name, email, password)
+        VALUES (?, ?, ?)"
+       );
 
-        $stmt->execute([
-            "username" => $username,
-            "email" => $email,
-            "password" => $hashedPassword
-        ]);
+    mysqli_stmt_bind_param(
+    $stmt,
+    "sss",
+    $name,
+    $email,
+    $hashedPassword
+    );
 
+    mysqli_stmt_execute($stmt);
         $success = "Registo efetuado com sucesso!";
     }
-}
+
+   }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -95,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <form method="post" novalidate class="card bg-secondary bg-opacity-10 p-4 border-0 rounded-3">
                     <div class="mb-3">
                         <label class="form-label">Nome de utilizador</label>
-                        <input type="text" name="username" class="form-control" required>
+                        <input type="text" name="name" class="form-control" required>
                     </div>
 
                     <div class="mb-3">

@@ -2,10 +2,11 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/index.php">Coldplay</a>
+    <a class="navbar-brand fw-bold" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/php/index.php">Coldplay</a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -14,19 +15,19 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto align-items-center">
         <li class="nav-item">
-          <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/index.php">Início</a>
+          <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/php/index.php">Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/sobre.html">Sobre</a>
+          <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/php/sobre.php">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/albuns.html">Álbuns</a>
+          <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/php/albuns.php">Álbuns</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/tour.html">Tour</a>
+          <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/php/events.php">Tour</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/contactos.html">Contactos</a>
+          <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/php/contactos.php">Contactos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/php/loja.php">Loja</a>
@@ -39,6 +40,12 @@ if (session_status() === PHP_SESSION_NONE) {
             </a>
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
               <li><a class="dropdown-item" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/php/profile.php">Meu Perfil</a></li>
+
+            <li>
+             <a class="dropdown-item" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/php/my_orders.php">
+              Histórico de Compras
+            </a>
+           </li>
               
               <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
                 <li><a class="dropdown-item text-warning fw-bold" href="/fullstackdev/Aulas-HTMLCSS/coldplay-fanpage/php/admin.php">Painel Admin</a></li>

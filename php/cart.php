@@ -80,13 +80,16 @@ if (!empty($product_ids)) {
             $total += $subtotal;
 
             $items[] = [
-                "key" => $key,
-                "name" => $p["name"],
-                "price" => $p["price"],
-                "image" => $p["image"],
-                "qty" => $qty,
-                "subtotal" => $subtotal
+             "type" => "product",
+             "id" => $p["id"],
+             "key" => $key,
+             "name" => $p["name"],
+             "price" => $p["price"],
+             "image" => $p["image"],
+             "qty" => $qty,
+             "subtotal" => $subtotal
             ];
+                
         }
     }
 }
@@ -118,6 +121,8 @@ if (!empty($event_ids)) {
             $total += $subtotal;
 
             $items[] = [
+                "type" => "event",
+                "id" => $e["id"],
                 "key" => $key,
                 "name" => $e["name"],
                 "price" => $e["price"],
@@ -125,6 +130,7 @@ if (!empty($event_ids)) {
                 "qty" => $qty,
                 "subtotal" => $subtotal
             ];
+                
         }
     }
 }
@@ -152,7 +158,11 @@ if (!empty($event_ids)) {
                 <strong><?= htmlspecialchars($item["name"]) ?></strong><br>
 
                 <?php if (!empty($item["image"])): ?>
-                    <img src="<?= htmlspecialchars($item["image"]) ?>" width="80"><br>
+                <img
+                    src="../<?= str_replace('\\', '/', htmlspecialchars($item['image'])) ?>"
+                    width="80"
+                    class="rounded"
+                >
                 <?php endif; ?>
 
                 <?= number_format($item["price"], 2) ?> € x <?= $item["qty"] ?> = 

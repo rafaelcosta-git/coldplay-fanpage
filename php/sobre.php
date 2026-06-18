@@ -1,3 +1,16 @@
+<?php
+require_once "session.php";
+require_once "db.php";
+
+include "navbar.php";
+
+$events = mysqli_query(
+    $conn,
+    "SELECT * FROM events ORDER BY date ASC LIMIT 3"
+);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -7,36 +20,14 @@
   <meta name="description" content="Conheça a história da banda Coldplay, seus membros, discografia e trajetória de sucesso mundial.">
   <meta name="keywords" content="Coldplay, banda, história, membros, música, rock alternativo, prêmios">
   
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <!-- CSS personalizado -->
-  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">Coldplay</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="sobre.html">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="albuns.html">Álbuns</a></li>
-          <li class="nav-item"><a class="nav-link" href="tour.html">Tour</a></li>
-          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
-          <li class="nav-item"><a class="nav-link" href="loja.html">Loja</a></li>
-          <li class="nav-item"><a class="nav-link" href="calculadora.html">Cálculo</a></li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+  
   <!-- Conteúdo -->
   <main class="container my-5">
     <h1 class="text-center mb-4">Sobre os Coldplay</h1>
@@ -53,7 +44,7 @@
         <span class="badge bg-primary">7 Brit Awards</span>
       </div>
       <div class="col-md-6">
-        <img src="imagens/4.jpg" class="img-fluid rounded shadow" alt="Banda Coldplay ao vivo">
+        <img src="../imagens/4.jpg" class="img-fluid rounded shadow" alt="Banda Coldplay ao vivo">
       </div>
     </div>
 
@@ -62,13 +53,13 @@
     <div id="carouselColdplay" class="carousel slide mb-5" data-bs-ride="carousel">
       <div class="carousel-inner rounded shadow">
         <div class="carousel-item active">
-          <img src="imagens/1.jpg" class="d-block w-100" alt="Coldplay em concerto">
+          <img src="../imagens/1.jpg" class="d-block w-100" alt="Coldplay em concerto">
         </div>
         <div class="carousel-item">
-          <img src="imagens/2.jpg" class="d-block w-100" alt="Coldplay em palco mundial">
+          <img src="../imagens/2.jpg" class="d-block w-100" alt="Coldplay em palco mundial">
         </div>
         <div class="carousel-item">
-          <img src="imagens/3.jpg" class="d-block w-100" alt="Coldplay recebendo prémios">
+          <img src="../imagens/3.jpg" class="d-block w-100" alt="Coldplay recebendo prémios">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselColdplay" data-bs-slide="prev">
@@ -128,53 +119,53 @@
 
     <!-- CARD 1 -->
     <div class="infinite-scroll-card">
-      <img src="imagens/chris.jpg">
+      <img src="../imagens/chris.jpg">
       <h3>Chris Martin</h3>
       <p>Vocalista e pianista</p>
     </div>
 
     <!-- CARD 2 -->
     <div class="infinite-scroll-card">
-      <img src="imagens/jonny.jpg">
+      <img src="../imagens/jonny.jpg">
       <h3>Jonny Buckland</h3>
       <p>Guitarrista</p>
     </div>
 
     <!-- CARD 3 -->
     <div class="infinite-scroll-card">
-      <img src="imagens/guy.jpg">
+      <img src="../imagens/guy.jpg">
       <h3>Guy Berryman</h3>
       <p>Baixista</p>
     </div>
 
     <!-- CARD 4 -->
     <div class="infinite-scroll-card">
-      <img src="imagens/will.jpg">
+      <img src="../imagens/will.jpg">
       <h3>Will Champion</h3>
       <p>Baterista</p>
     </div>
 
     <!-- DUPLICADOS PARA LOOP -->
     <div class="infinite-scroll-card">
-      <img src="imagens/chris.jpg">
+      <img src="../imagens/chris.jpg">
       <h3>Chris Martin</h3>
       <p>Vocalista e pianista</p>
     </div>
 
     <div class="infinite-scroll-card">
-      <img src="imagens/jonny.jpg">
+      <img src="../imagens/jonny.jpg">
       <h3>Jonny Buckland</h3>
       <p>Guitarrista</p>
     </div>
 
     <div class="infinite-scroll-card">
-      <img src="imagens/guy.jpg">
+      <img src="../imagens/guy.jpg">
       <h3>Guy Berryman</h3>
       <p>Baixista</p>
     </div>
 
     <div class="infinite-scroll-card">
-      <img src="imagens/will.jpg">
+      <img src="../imagens/will.jpg">
       <h3>Will Champion</h3>
       <p>Baterista</p>
     </div>
@@ -252,6 +243,9 @@
 
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
 </body>
 </html>

@@ -269,3 +269,39 @@ img.responsiva {
   0% { transform: translateX(0); }
   100% { transform: translateX(calc(-250px * 4 - 80px)); }
 }
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+
+/*CARD CORES*/
+
+.event-card{
+    background-color: #212529 !important;
+    border: 1px solid #495057;
+    transition: 0.3s;
+}
+
+.event-card:hover{
+    transform: translateY(-5px);
+    border-color: #ffc107;
+    box-shadow: 0 0 20px rgba(255,193,7,.25);
+}
+
+
+/* ADMIN DASHBOARD */
+
+.admin-card{
+    transition: all .3s ease;
+}
+
+.admin-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,.4);
+}

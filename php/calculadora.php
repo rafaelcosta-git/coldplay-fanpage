@@ -1,3 +1,16 @@
+<?php
+require_once "php/session.php";
+require_once "php/db.php";
+
+include "php/navbar.php";
+
+$events = mysqli_query(
+    $conn,
+    "SELECT * FROM events ORDER BY date ASC LIMIT 3"
+);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -57,28 +70,7 @@
 
 <body>
 
-  <!-- Header -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">COLDPLAY</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="nav" class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
-            <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
-            <li class="nav-item"><a class="nav-link" href="albuns.html">Álbuns</a></li>
-            <li class="nav-item"><a class="nav-link" href="tour.html">Tour</a></li>
-            <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
-            <li class="nav-item"><a class="nav-link" href="loja.html">Loja</a></li>
-            <li class="nav-item"><a class="nav-link" href="calculadora.html">Cálculo</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+
 
   <main class="container my-5">
 
@@ -139,5 +131,8 @@
   </footer>
 
   <script src="calculadora.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

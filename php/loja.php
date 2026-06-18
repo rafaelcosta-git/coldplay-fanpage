@@ -32,6 +32,8 @@ if (!empty($_SESSION["cart"])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body class="bg-dark text-light">
@@ -74,7 +76,7 @@ include "navbar.php";  // Chama a barra de navegação
             <div class="card h-100 bg-dark border-secondary shadow-sm">
               
               <?php 
-                // Truque inteligente para ajustar o caminho da imagem
+                // Truque para ajustar o caminho da imagem
                 $imagePath = $p["image"];
                 if (strpos($imagePath, '../') !== 0 && strpos($imagePath, '/') !== 0) {
                     $imagePath = '../' . $imagePath; 
@@ -122,7 +124,18 @@ include "navbar.php";  // Chama a barra de navegação
 </main>
 
 <footer class="bg-dark border-top border-secondary text-white text-center p-4 mt-5">
-  <p>&copy; 2025 Coldplay Fanpage.</p>
+    <p>&copy; 2026 Coldplay Fanpage. Todos os direitos reservados.</p>
+
+    <div class="footer-social">
+        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-spotify"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-apple"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-x-twitter"></i></a>
+    </div>
+
 </footer>
 
 <script>
@@ -146,6 +159,8 @@ select.addEventListener("change", () => {
   aplicarFiltro(select.value);
 });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

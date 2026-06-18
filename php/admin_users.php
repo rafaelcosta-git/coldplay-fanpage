@@ -11,14 +11,26 @@ $message = "";
 
 // DELETE
 if (isset($_GET['delete'])) {
+
     $id = (int) $_GET['delete'];
 
     if ($id == $_SESSION['user_id']) {
+
         $message = "Erro: Não podes apagar a tua própria conta!";
+
     } else {
-        mysqli_query($conn, "DELETE FROM users WHERE id = $id");
-        header("Location: admin_users.php");
-        exit;
+
+        if (mysqli_query($conn, "DELETE FROM users WHERE id = $id")) {
+
+            header("Location: admin_users.php");
+            exit;
+
+        } else {
+
+            $message = "Não é possível apagar este utilizador porque possui encomendas/compras associadas.";
+
+        }
+
     }
 }
 
@@ -114,6 +126,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     </table>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

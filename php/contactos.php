@@ -1,3 +1,16 @@
+<?php
+require_once "session.php";
+require_once "db.php";
+
+include "navbar.php";
+
+$events = mysqli_query(
+    $conn,
+    "SELECT * FROM events ORDER BY date ASC LIMIT 3"
+);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -7,37 +20,14 @@
   <meta name="description" content="Entre em contacto connosco através do formulário de contacto da fanpage Coldplay.">
   <meta name="keywords" content="Coldplay, contactos, formulário, email, telefone, mensagem">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-  <!-- CSS personalizado -->
-  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Coldplay</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="albuns.html">Álbuns</a></li>
-          <li class="nav-item"><a class="nav-link" href="tour.html">Tour</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contactos.html">Contactos</a></li>
-          <li class="nav-item"><a class="nav-link" href="loja.html">Loja</a></li>
-          <li class="nav-item"><a class="nav-link" href="calculadora.html">Cálculo</a></li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
+  
 
   <!-- Conteúdo -->
   <main class="container my-5">
@@ -101,7 +91,9 @@
 
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>
